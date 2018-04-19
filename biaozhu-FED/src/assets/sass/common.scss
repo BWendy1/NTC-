@@ -1,0 +1,45 @@
+/*按钮通用样式*/
+.a-btn {
+  border: none;
+  background: none;
+  color: #5AB327;
+  cursor: pointer;
+  outline: none;
+}
+.disabled-btn {
+  color: gray;
+  cursor: default;
+}
+.change-btn {
+  color: orange;
+}
+
+/*表格样式*/
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #FFFFFF;
+  border: 1px solid #D8D8D8;
+  margin-bottom: 30px;
+  tr {
+    height: 40px;
+    th {
+      padding-left: 20px;
+      color: #FFFFFF;
+      font-weight: 400;
+      background: #00D2C0;
+    }
+    td {
+      padding-left: 20px;
+      text-align: left;
+      color: #212121;
+    }
+    .align-right {
+      text-align: right;
+      padding-right: 20px;
+    }
+  }
+  tr:nth-child(odd) {
+    background: #F5F5F5;
+  }
+}
