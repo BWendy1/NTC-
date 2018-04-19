@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>标注页</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="lib/contextMenu/contextMenu.css">
+</head>
+<body>
+    <header>
+        <div class="btn-group">
+            <button id="repeal" class="btn-normal">撤销</button>
+            <button id="revert" class="btn-normal">还原</button>
+            <button id="save" class="btn-normal">保存</button>
+        </div>
+    </header>
+    <section>
+        <div class="change-box center" id="changePreview" style="display: none">
+            <div class="change-box-title box-title">上次工作成果预览：</div>
+            <div id="changePreviewDiv" class="preview">
+            </div>
+        </div>
+        <div class="center">
+            <div id="text">
+                <div class="box-with-title">
+                    <div class="box-title">上文：</div>
+                    <div id="upText" class="box-content disabled-text">
+                        <p>这里是上文</p>
+                    </div>
+                </div>
+                <div class="box-with-title to-label-box">
+                    <div class="box-title">工作段落：</div>
+                    <div id="toLabel" class="box-content">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="box-with-title">
+                    <div class="box-title">下文：</div>
+                    <div id="downText" class="box-content disabled-text">
+                        <p>这里是下文</p>
+                    </div>
+                </div>
+                <ul id="contextMenu">
+                    <li id="endContext" class="has-child">
+                        <input type="button" id="shareBtn" class="context-btn" value="end >" disabled/>
+                        <ul>
+                            <li><input type="button" key="direct0" class="context-btn" value="direct0"/></li>
+                            <li class="has-child" id="direct1Context">
+                                <input type="button" id="direct1" class="context-btn" value="direct1 >"/>
+                                <ul>
+                                    <li><input type="button" key="len0" class="context-btn" value="从头到此位置"/></li>
+                                    <li><input type="button" key="lenD" class="context-btn" value="默认选中长度"/></li>
+                                </ul>
+                            </li>
+                            <li><input type="button" key="direct2" class="context-btn" value="direct2"/></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="button" key="rearBtn" id="rearBtn" class="context-btn" value="start"/>
+                    </li>
+                    <li>
+                        <input type="button" key="addSubgraph" id="addSubgraph" class="context-btn" value="addSubgraph"/>
+                    </li>
+                    <li id="split" class="has-child">
+                        <input type="button" id="splitline" key="split" class="context-btn" value="split >"/>
+                        <ul>
+                            <li><input type="button" key="split" direction="1" class="context-btn" value="forward"/></li>
+                            <li><input type="button" key="split" direction="2" class="context-btn" value="backward"/></li>
+                            <li><input type="button" key="split" direction="0" class="context-btn" value="both"/></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="workArea">
+                <div class="box-with-title" style="margin-bottom: 20px;">
+                    <div class="box-title">预览is：</div>
+                    <div id="preview1" class="preview">
+                    </div>
+                </div>
+                <div class="box-with-title">
+                    <div class="box-title">预览cs：</div>
+                    <div id="preview2" class="preview">
+                    </div>
+                </div>
+                <table id="chosenText" class="table table-hover table-condensed">
+                    <thead style="display: none">
+                        <tr>
+                            <th width="100px"></th>
+                            <th width="200px"></th>
+                            <th width="300px"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataGroups">
+
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+    </section>
+
+    <script src="lib/jquery-3.2.1.min.js"></script>
+    <script src="lib/contextMenu/contextMenu.js"></script>
+    <script src="js/sentenceLabel.js"></script>
+</body>
+</html>
