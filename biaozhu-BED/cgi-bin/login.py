@@ -11,8 +11,8 @@ form=cgi.FieldStorage()
 name = form.getvalue('name')
 pwd = form.getvalue('password')
 
-name = 'cry'
-password = 'qweqwe'
+#name = 'cry'
+#password = 'qweqwe'
 
 conn=connection.conn
 cur=connection.cur
