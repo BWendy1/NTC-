@@ -11,10 +11,13 @@ let idKey = 0;
 let gData = '';
 let id;
 let userId;
+let page;
 $(function () {
     id = getUrlParam("id");
     userId = getUrlParam('userId'); 
-    change = getUrlParam('change'); 
+    change = getUrlParam('change');
+    page = getUrlParam('page')
+    setCookie('page', page)
     if (!userId) { // 无userId大概率为用户直接输入网址进入标注页
         alert('请登陆')
         window.location.href = '/dist'
@@ -586,4 +589,14 @@ function getCookie (cname) {
         }
     }
     return ''
+}
+function setCookie (name, value, exdays) {
+  if (exdays !== undefined) {
+    let d = new Date()
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000))
+    const expires = 'expires=' + d.toUTCString()
+    document.cookie = name + '=' + value + ';' + expires
+  } else {
+    document.cookie = name + '=' + value + ';'
+  }
 }

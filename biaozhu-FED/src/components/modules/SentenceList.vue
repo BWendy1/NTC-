@@ -43,7 +43,6 @@
 
 import * as service from '../../service/index'
 import Pagination from '../utils/Pagination'
-
 export default {
   data () {
     return {
@@ -62,11 +61,12 @@ export default {
     Pagination
   },
   created () {
+    const pageNo = Number(service.getCookie('page')) || 1
     service.postAxios('/cgi-bin/sentenceList.py', {
       id: this.id,
       userId: this.userId,
       pageSize: 10,
-      pageNo: 1
+      pageNo: pageNo
     }, this.fillData)
   },
   methods: {
@@ -90,9 +90,9 @@ export default {
     },
     goLabel (id, change) {
       if (change === 'change') { // 修改
-        window.location.href = `http://localhost:8099?id=${id}&parentId=${this.id}&userId=${this.userId}&change=true`
+        window.location.href = `http://localhost:8099?page=${this.pageObj.currentPage}&id=${id}&parentId=${this.id}&userId=${this.userId}&change=true`
       } else {
-        window.location.href = `http://localhost:8099?id=${id}&parentId=${this.id}&userId=${this.userId}`
+        window.location.href = `http://localhost:8099?page=${this.pageObj.currentPage}&id=${id}&parentId=${this.id}&userId=${this.userId}`
       }
     },
     pageCallback (pageNo) {
